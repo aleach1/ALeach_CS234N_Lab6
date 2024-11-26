@@ -86,7 +86,7 @@ class CustomerPage {
 
   // creates the option for one state
   loadState(state, index) {
-    return `<option value=${state.stateCode} ${(this.state.customer && this.state.customer.stateCode == state.stateCode)?"selected":""}>${state.stateName}</option>`;
+    return `<option value=${state.stateCode} ${(this.state.customer && this.state.customer.state == state.stateCode)?"selected":""}>${state.stateName}</option>`;
   }
 
   // makes an api call to /api/customer/# where # is the primary key of the customer
@@ -199,7 +199,7 @@ class CustomerPage {
       customer.name = this.$customerName.value;
       customer.address = this.$customerAddress.value;
       customer.city = this.$customerCity.value;
-      customer.stateCode = this.$customerState.value;
+      customer.state = this.$customerState.value;
       customer.zipCode = this.$customerZipcode.value;
       fetch(`${this.url}/${this.state.customerId}`, {
         method: 'PUT', 
